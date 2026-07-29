@@ -8,3 +8,4 @@ Template for python projects tailored to scientific applications (e.g., machine 
 - Directory for application requirements and dependencies
 
 # CHM_DINOV3
+# CHM_DINOV3
