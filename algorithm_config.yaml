@@ -1,0 +1,20 @@
+algorithm_name: alaska_dead_trees_mapper
+algorithm_version: 1.0.0
+algorithm_description: "Semantic segmentation of dead trees in Alaska using DINOv2"
+repository_url: https://github.com/abarenblitt/CHM_DINOV3
+docker_container_url: mas.maap-project.org/root/maap-workspaces/base_images/pytorch:latest
+build_command: bash -c "pip install -r requirements.txt"
+run_command: bash run.sh
+disk_space: 20GB
+inputs:
+  config:
+    - name: HF_TOKEN
+      type: string
+      required: true
+    - name: TIF_URL
+      type: string
+      required: true
+    - name: THRESHOLD
+      type: string
+      default: "0.30"
+      required: false
