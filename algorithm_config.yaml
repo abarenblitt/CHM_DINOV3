@@ -1,5 +1,5 @@
 algorithm_name: alaska_dead_trees_mapper
-algorithm_version: 1.0.0
+algorithm_version: main
 algorithm_description: "Semantic segmentation of dead trees in Alaska using DINOv2"
 repository_url: https://github.com/abarenblitt/CHM_DINOV3.git
 docker_container_url: continuumio/miniconda3:latest
