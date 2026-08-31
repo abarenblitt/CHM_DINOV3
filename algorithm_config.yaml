@@ -6,6 +6,7 @@ docker_container_url: mas.maap-project.org/root/maap-workspaces/base_images/pyto
 build_command: bash -c "pip install -r requirements.txt"
 run_command: bash run.sh
 disk_space: 20GB
+queue: maap-dps-worker-32gb  # <-- Added explicitly to prevent the queue_name error
 inputs:
   config:
     - name: HF_TOKEN
