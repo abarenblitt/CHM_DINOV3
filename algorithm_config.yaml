@@ -2,7 +2,7 @@ algorithm_name: alaska_dead_trees_mapper
 algorithm_version: 1.0.0
 algorithm_description: "Semantic segmentation of dead trees in Alaska using DINOv2"
 repository_url: https://github.com/abarenblitt/CHM_DINOV3.git
-docker_container_url: pytorch/pytorch:2.2.0-cuda12.1-cudnn8-devel
+docker_container_url: continuumio/miniconda3:latest
 build_command: pip install -r requirements.txt
 run_command: bash run.sh
 disk_space: 20GB
