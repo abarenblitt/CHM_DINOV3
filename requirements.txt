@@ -1,0 +1,8 @@
+torch
+torchvision
+transformers
+datasets
+rasterio
+numpy
+evaluate
+scikit-learn
