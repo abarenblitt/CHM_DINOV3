@@ -11,5 +11,10 @@ outdir=${PWD}/output
 cd ${basedir}
 
 # Run the python script
-# MAAP automatically passes config inputs (like HF_TOKEN) as Environment Variables
-python3 DINOV2Segmentation.py
+# Execute python script using conda run to ensure it finds installed packages
+conda run --no-capture-output -n base python DINOV2Segmentation.py \
+    --hf_token "$HF_TOKEN" \
+    --tif_url "$TIF_URL" \
+    --model_path "$MODEL_PATH" \
+    --output_dir "$OUTPUT_DIR" \
+    --threshold $THRESHOLD
