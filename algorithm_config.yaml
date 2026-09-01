@@ -4,7 +4,7 @@ algorithm_description: "Semantic segmentation of dead trees in Alaska using DINO
 repository_url: https://github.com/abarenblitt/CHM_DINOV3.git
 docker_container_url: continuumio/miniconda3:latest
 build_command: cd CHM_DINOV3 && pip install -r requirements.txt
-run_command: cd CHM_DINOV3 && bash run.sh
+run_command: bash CHM_DINOV3/run.sh
 disk_space: 20GB
 queue: maap-dps-worker-32gb
 inputs:
