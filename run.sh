@@ -1,23 +1,15 @@
 #!/bin/bash
-# run.sh - Entrypoint for DPS system
 
-# Exit immediately if a command exits with a non-zero status.
-set -e
+# Get the directory where this run.sh script lives
+basedir=$( cd "$(dirname "$0")" ; pwd -P )
 
-# Change to the directory where this script actually lives!
-cd "$(dirname "$0")"
+# MAAP requires outputs to go to a specific output folder in the execution directory
+mkdir -p output
+outdir=${PWD}/output
 
-# Default environment variables (can be overridden by DPS runner)
-HF_TOKEN=${HF_TOKEN:-""} 
-TIF_URL=${TIF_URL:-"https://glihtdata.gsfc.nasa.gov/files/G-LiHT/AK_20180705_FIA_19/photography/orthomosaic/AK_20180705_FIA_19_l0s86_ortho.tif"}
-MODEL_PATH=${MODEL_PATH:-"./model/model.pt"}
-OUTPUT_DIR=${OUTPUT_DIR:-"output"}
-THRESHOLD=${THRESHOLD:-0.30}
+# Change to the directory where your code lives
+cd ${basedir}
 
-# Execute python script
-python3 dps_processor.py \
-    --hf_token "$HF_TOKEN" \
-    --tif_url "$TIF_URL" \
-    --model_path "$MODEL_PATH" \
-    --output_dir "$OUTPUT_DIR" \
-    --threshold $THRESHOLD
+# Run the python script
+# MAAP automatically passes config inputs (like HF_TOKEN) as Environment Variables
+python3 DINOV2Segmentation.py
