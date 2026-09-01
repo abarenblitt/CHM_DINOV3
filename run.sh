@@ -4,6 +4,9 @@
 # Exit immediately if a command exits with a non-zero status.
 set -e
 
+# Change to the directory where this script actually lives!
+cd "$(dirname "$0")"
+
 # Default environment variables (can be overridden by DPS runner)
 HF_TOKEN=${HF_TOKEN:-""} 
 TIF_URL=${TIF_URL:-"https://glihtdata.gsfc.nasa.gov/files/G-LiHT/AK_20180705_FIA_19/photography/orthomosaic/AK_20180705_FIA_19_l0s86_ortho.tif"}
