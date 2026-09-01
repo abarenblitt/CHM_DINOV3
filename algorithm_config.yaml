@@ -3,8 +3,8 @@ algorithm_version: main
 algorithm_description: "Semantic segmentation of dead trees in Alaska using DINOv2"
 repository_url: https://github.com/abarenblitt/CHM_DINOV3.git
 docker_container_url: continuumio/miniconda3:latest
-build_command: pip install -r requirements.txt
-run_command: bash run.sh
+build_command: cd CHM_DINOV3 && pip install -r requirements.txt
+run_command: cd CHM_DINOV3 && bash run.sh
 disk_space: 20GB
 queue: maap-dps-worker-32gb
 inputs:
