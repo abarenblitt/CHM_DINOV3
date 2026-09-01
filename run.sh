@@ -10,6 +10,9 @@ outdir=${PWD}/output
 # Change to the directory where your code lives
 cd ${basedir}
 
+# Force install dependencies into the active runtime environment
+python3 -m pip install -r requirements.txt
+
 # Run the python script
 # Execute python script using conda run to ensure it finds installed packages
 conda run --no-capture-output -n base python DINOV2Segmentation.py \
