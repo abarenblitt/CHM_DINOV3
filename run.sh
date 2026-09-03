@@ -11,7 +11,7 @@ outdir=${PWD}/output
 cd ${basedir}
 
 # Force install dependencies into the active runtime environment
-python3 -m pip install -r requirements.txt
+conda env update -f ${basedir}/requirements.yml
 
 # Run the python script
 # Execute python script using conda run to ensure it finds installed packages
