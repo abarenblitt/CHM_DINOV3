@@ -2,20 +2,20 @@ algorithm_name: alaska_dead_trees_mapper
 algorithm_version: main
 algorithm_description: "Semantic segmentation of dead trees in Alaska using DINOv2"
 repository_url: https://github.com/abarenblitt/CHM_DINOV3.git
-docker_container_url: mas.maap-project.org/root/maap-workspaces/base_images/r:v4.0.0
-build_command: bash CHM_DINOV3/build.sh
-run_command: bash CHM_DINOV3/run.sh ${HF_TOKEN} ${TIF_URL} ${THRESHOLD}
+docker_container_url: continuumio/miniconda3:latest
+build_command: CHM_DINOV3/build.sh
+run_command: bash CHM_DINOV3/run.sh
 disk_space: 20GB
 queue: maap-dps-worker-32gb
 inputs:
-  config:
-    - name: HF_TOKEN
+  positional:
+    - name: hf_token
       type: string
       required: true
-    - name: TIF_URL
+    - name: tif_url
       type: string
       required: true
-    - name: THRESHOLD
+    - name: threshold
       type: string
       default: "0.30"
       required: false

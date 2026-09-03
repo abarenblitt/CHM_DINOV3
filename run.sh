@@ -1,26 +1,26 @@
 #!/bin/bash
 set -e
 
-# 1. Catch the positional arguments from MAAP
-HF_TOKEN_ARG=$1
-TIF_URL_ARG=$2
-THRESHOLD_ARG=$3
+# 1. Catch positional arguments automatically sent by MAAP
+HF_TOKEN=$1
+TIF_URL=$2
+THRESHOLD=$3
 
-# 2. Set up directories
+# 2. Set directories
 basedir=$( cd "$(dirname "$0")" ; pwd -P )
 mkdir -p output
 export OUTPUT_DIR=${PWD}/output
 cd ${basedir}
 
-# 3. Install packages
-echo "Updating Conda environment..."
-conda env update -f ${basedir}/requirements.yml
+# 3. DIRECT PIP INSTALL (This bypasses any Conda / requirements file errors)
+echo "Installing Python dependencies..."
+pip install torch torchvision transformers datasets rasterio evaluate scikit-learn numpy
 
-# 4. Run the script with the caught variables
+# 4. RUN SCRIPT
 echo "Running Python script..."
-conda run --no-capture-output -n base python DINOV2Segmentation.py \
-    --hf_token "${HF_TOKEN_ARG}" \
-    --tif_url "${TIF_URL_ARG}" \
+python DINOV2Segmentation.py \
+    --hf_token "${HF_TOKEN}" \
+    --tif_url "${TIF_URL}" \
     --model_path "./model/model.pt" \
     --output_dir "${OUTPUT_DIR}" \
-    --threshold "${THRESHOLD_ARG}"
+    --threshold "${THRESHOLD}"
