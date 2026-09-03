@@ -1,0 +1,13 @@
+name: dino_envi
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - torch
+  - torchvision
+  - transformers
+  - datasets
+  - rasterio
+  - numpy
+  - evaluate
+  - scikit-learn
