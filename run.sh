@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # Get the directory where this run.sh script lives
 basedir=$( cd "$(dirname "$0")" ; pwd -P )
