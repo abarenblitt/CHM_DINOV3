@@ -3,8 +3,8 @@ algorithm_version: main
 algorithm_description: "Semantic segmentation of dead trees in Alaska using DINOv2"
 repository_url: https://github.com/abarenblitt/CHM_DINOV3.git
 docker_container_url: mas.maap-project.org/root/maap-workspaces/base_images/r:v4.0.0
-build_command: cd CHM_DINOV3/notebooks && build.sh
-run_command: cd CHM_DINOV3/notebooks && run.sh
+build_command: CHM_DINOV3/notebooks/build.sh
+run_command: CHM_DINOV3/notebooks/run.sh
 disk_space: 20GB
 queue: maap-dps-worker-32gb
 inputs:
