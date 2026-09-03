@@ -35,6 +35,7 @@ class Dinov2ForSemanticSegmentation(Dinov2PreTrainedModel):
     _tied_weights_keys = []
     def __init__(self, config):
         super().__init__(config)
+        self.all_tied_weights_keys = {}  # <--- ADD THIS LINE BACK IN!
         self.dinov2 = Dinov2Model(config)
         self.classifier = LinearClassifier(config.hidden_size, 32, 32, config.num_labels)
 
