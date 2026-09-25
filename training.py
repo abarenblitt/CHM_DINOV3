@@ -134,8 +134,12 @@ def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Train Alaska Dead Trees Model")
     parser.add_argument("--hf_token", type=str, required=True, help="Hugging Face token")
-    parser.add_argument("--model_path", type=str, default="./output/model.pt", help="Path to save the trained model")
     parser.add_argument("--epochs", type=int, default=10, help="Training epochs")
+    parser.add_argument("--model_path", type=str, default="model.pt", help="Name of the model file")
+    
+    # Add these back in so DPS doesn't crash when it passes them automatically
+    parser.add_argument("--output_dir", type=str, default="./output", help="Directory for DPS outputs")
+    parser.add_argument("--threshold", type=str, default="0.30", help="Ignored during training")
     
     args = parser.parse_args()
     main(args)
