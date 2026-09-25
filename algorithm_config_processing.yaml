@@ -12,9 +12,6 @@ disk_space: 20GB
 queue: maap-dps-worker-32gb
 inputs:
   positional:
-    - name: hf_token
-      type: string
-      required: true
     - name: tif_url
       type: string
       required: true
