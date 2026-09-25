@@ -6,7 +6,7 @@ docker_container_url: continuumio/miniconda3:latest
 
 build_command: echo "Skipping build step, packages installed at runtime."
 
-run_command: bash CHM_DINOV3/run_train.sh
+run_command: bash CHM_DINOV3/run_process.sh
 
 disk_space: 20GB
 queue: maap-dps-worker-32gb
@@ -15,3 +15,10 @@ inputs:
     - name: hf_token
       type: string
       required: true
+    - name: tif_url
+      type: string
+      required: true
+    - name: threshold
+      type: string
+      default: "0.30"
+      required: false
