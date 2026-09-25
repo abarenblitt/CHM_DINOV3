@@ -126,10 +126,13 @@ def main(args):
             if idx % 100 == 0:
                 print(f"Step {idx} - Loss: {loss.item():.4f}")
     
+   # Combine the DPS output directory with the model filename
+    save_path = os.path.join(args.output_dir, args.model_path)
+    
     # Save the model and stop
-    os.makedirs(os.path.dirname(args.model_path), exist_ok=True)
-    torch.save(model, args.model_path)
-    print(f"Training Complete. Model saved to {args.model_path}")
+    os.makedirs(args.output_dir, exist_ok=True)
+    torch.save(model, save_path)
+    print(f"Training Complete. Model saved to {save_path}")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Train Alaska Dead Trees Model")
